@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+
+
+.landing {
+
+  .landing-body {
+    background: url('/assets/img/gym-banner.png') center / cover no-repeat;
+    height: 100vh;
+
+    .nav-block {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+
+      height: 300px;
+
+      .logo {
+        position: fixed;
+        bottom: 112px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 169px;
+        height: 169px;
+      }
+
+      .start-btn {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translate(-50%);
+
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        color: #fff;
+
+        border-radius: 32px;
+        width: 80vw;
+        max-width: 350px;
+        background: #192126;
+        padding: 16px;
+        // text-wrap: nowrap;
+      }
+
+      .white-back {
+        background-color: #fff;
+        height: 200px;
+        width: 100%;
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    }
+  }
+}
