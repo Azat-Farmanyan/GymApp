@@ -1,3 +1,48 @@
 :host {
   display: block;
 }
+
+.gym {
+  background: #f7f6fa;
+  height: 100vh;
+
+
+  .gym-header {
+    margin-bottom: 23px;
+  }
+
+  .input-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    width: 100%;
+    // height: 48px;
+    padding: 12px;
+    border-radius: 12px;
+    gap: 10px;
+
+    input {
+      width: 100%;
+      font-size: 18px;
+
+      &::placeholder {
+        color: rgba(25, 33, 38, 0.5);
+      }
+
+      &:focus {
+        color: #192126;
+      }
+
+
+      &:not(:placeholder-shown) {
+        color: #192126;
+      }
+    }
+
+    .clear-icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

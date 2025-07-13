@@ -1,1 +1,29 @@
-<p>gym works!</p>,
+<div class="gym wrapper">
+  <div class="gym-header">
+    <div class="secondary-title">Действуй 🔥</div>
+    <div class="main-title">Рассчитай веса для жима</div>
+  </div>
+  <div class="gym-body">
+    <div class="input-block">
+      <img
+        src="../../../assets/img/ic_search.svg"
+        alt="search"
+        class="search-icon"
+      />
+      <input
+        type="number"
+        placeholder="Введите вес (кг)"
+        [formControl]="gymMaxWeight"
+      />
+
+      @if (gymMaxWeight.value) {
+      <button class="clear-icon" (click)="clearInput()">
+        <img src="../../../assets/img/close-rounded-gray.svg" alt="clear" />
+      </button>
+      }
+    </div>
+    <pre>
+    {{ sets | json }}
+    </pre>
+  </div>
+</div>
