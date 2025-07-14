@@ -35,21 +35,31 @@ export class GymComponent implements OnInit {
   sets: WritableSignal<Set[] | null> = signal<Set[] | null>(null);
 
   constructor() {
+    const saved = Number(localStorage.getItem('gymMaxWeight'));
+    if (!isNaN(saved) && saved >= 10) {
+      this.gymMaxWeight.setValue(saved, { emitEvent: false });
+    }
+
     // авто‑отписка при уничтожении компонента
     this.gymMaxWeight.valueChanges
       .pipe(takeUntilDestroyed(inject(DestroyRef)))
       .subscribe((value) => {
         if (value && value >= 10) {
           this.sets.set(this.calculate(value ?? 0));
+          localStorage.setItem('gymMaxWeight', String(value));
         } else {
           this.sets.set(this.calculate(0));
+          localStorage.removeItem('gymMaxWeight');
         }
         this.cdr.detectChanges();
       });
   }
   ngOnInit(): void {
-    // this.gymMaxWeight.setValue(150);
-    // this.sets.set(this.calculate(150));
+    const saved = Number(localStorage.getItem('gymMaxWeight'));
+    if (!isNaN(saved) && saved >= 10) {
+      this.gymMaxWeight.setValue(saved, { emitEvent: false });
+      this.sets.set(this.calculate(saved));
+    }
   }
 
   /** Массив сетов или null, если вес невалиден */
@@ -102,8 +112,7 @@ export class GymComponent implements OnInit {
 
     return steps.map(({ coef, reps, name, description, color }) => {
       const weight = this.round5(maxWeight * coef);
-      let percent = Math.round((weight / maxWeight) * 100);
-      if (percent > 100) percent = 100;
+      let percent = coef * 100;
       return { weight, reps, percent, name, description, color };
     });
   }
