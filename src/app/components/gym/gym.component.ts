@@ -11,6 +11,7 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { WeightCardComponent } from '../weightCard/weightCard.component';
+import { RouterLink } from '@angular/router';
 
 export interface Set {
   weight: number;
@@ -22,7 +23,7 @@ export interface Set {
 }
 @Component({
   selector: 'app-gym',
-  imports: [ReactiveFormsModule, WeightCardComponent],
+  imports: [ReactiveFormsModule, WeightCardComponent, RouterLink],
   templateUrl: './gym.component.html',
   styleUrl: './gym.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -101,7 +102,8 @@ export class GymComponent implements OnInit {
 
     return steps.map(({ coef, reps, name, description, color }) => {
       const weight = this.round5(maxWeight * coef);
-      const percent = Math.round((weight / maxWeight) * 100);
+      let percent = Math.round((weight / maxWeight) * 100);
+      if (percent > 100) percent = 100;
       return { weight, reps, percent, name, description, color };
     });
   }

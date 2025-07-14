@@ -1,7 +1,7 @@
 <div class="gym wrapper">
   <div class="gym-header">
     <div class="secondary-title">Действуй 🔥</div>
-    <div class="main-title">Рассчитай веса для жима</div>
+    <h1 class="main-title">Рассчитай веса для жима</h1>
   </div>
   <div class="gym-body">
     <div class="input-block">
@@ -26,7 +26,10 @@
     <div class="sets-list">
       <div class="sets-list__header">
         <div class="sets-list__title">План тренировок</div>
-        <button class="sets-list__instruction-btn">
+        <button
+          class="sets-list__instruction-btn"
+          [routerLink]="['/instruction']"
+        >
           <img
             src="../../../assets/img/lets-icons_video-fill.svg"
             alt="lets-icons_video-fill.svg"

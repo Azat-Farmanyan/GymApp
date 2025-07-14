@@ -21,6 +21,15 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/gym/gym.component').then((c) => c.GymComponent),
   },
+
+  {
+    path: 'instruction',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./components/instruction/instruction.component').then(
+        (c) => c.InstructionComponent
+      ),
+  },
   {
     path: '**',
     redirectTo: 'landing',
