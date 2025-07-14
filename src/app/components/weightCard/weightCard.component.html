@@ -1,0 +1,29 @@
+<div class="set">
+  <div class="set__body">
+    <div class="set__image">
+      <img
+        src="{{`../../../assets/img/${setID}.svg`}}"
+        alt="trainerPhoto"
+        class="set__trainerPhoto"
+      />
+    </div>
+    <div class="set__right-block">
+      <div class="set__text-block">
+        <div class="set__weight">{{ set.weight }} кг х {{ set.reps }}</div>
+        <div class="set__description">{{ set.description }}</div>
+      </div>
+      <div class="set__name">
+        {{ set.name }}
+      </div>
+
+      <div class="set__percent-block">
+        <div
+          class="percent-scroller"
+          [style]="{ width: set.percent + '%', background: set.color }"
+        >
+          {{ set.percent }} %
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

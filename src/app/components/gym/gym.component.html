@@ -22,8 +22,27 @@
       </button>
       }
     </div>
-    <pre>
-    {{ sets | json }}
-    </pre>
+
+    <div class="sets-list">
+      <div class="sets-list__header">
+        <div class="sets-list__title">План тренировок</div>
+        <button class="sets-list__instruction-btn">
+          <img
+            src="../../../assets/img/lets-icons_video-fill.svg"
+            alt="lets-icons_video-fill.svg"
+          />
+          <span>Инструкция</span>
+        </button>
+      </div>
+      <div class="sets-list-body">
+        @if (sets() ) { @for (set of sets(); track set.name; let i = $index) {
+        <app-weight-card [set]="set" [setID]="i + 1"></app-weight-card>
+        } } @else {
+        <span class="sets-list-body__empty-result"
+          >После ввода данных здесь появится структура тренировки</span
+        >
+        }
+      </div>
+    </div>
   </div>
 </div>

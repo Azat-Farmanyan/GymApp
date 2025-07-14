@@ -6,7 +6,6 @@
   background: #f7f6fa;
   height: 100vh;
 
-
   .gym-header {
     margin-bottom: 23px;
   }
@@ -17,10 +16,10 @@
     justify-content: center;
     background: #fff;
     width: 100%;
-    // height: 48px;
     padding: 12px;
     border-radius: 12px;
     gap: 10px;
+    margin-bottom: 23px;
 
     input {
       width: 100%;
@@ -43,6 +42,45 @@
     .clear-icon {
       display: flex;
       align-items: center;
+    }
+  }
+
+  .sets-list {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    &__title,
+    &__instruction-btn {
+      font-weight: 500;
+      font-size: 18px;
+      color: #192126;
+    }
+
+    &__instruction-btn {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .sets-list-body {
+      display: flex;
+      flex-direction: column;
+      margin: 14px 0;
+      gap: 20px;
+      padding-bottom: 30px;
+
+      &__empty-result {
+        font-weight: 500;
+        font-size: 14px;
+        color: rgba(25, 33, 38, 0.5);
+        margin-top: 23px;
+        display: inline-block;
+      }
     }
   }
 }
